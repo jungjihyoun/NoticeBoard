@@ -29,5 +29,7 @@ export default {
     }
     .header a {
         color: white;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 </style>

@@ -6,7 +6,6 @@
 
 <script>
 import { fetchNews } from '../api/index.js';
-
 export default {
   data(){
     return{

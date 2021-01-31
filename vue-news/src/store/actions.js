@@ -2,6 +2,7 @@ import {
     fetchNews,
     fetchAsk,
     fetchJobs,
+
 } from '../api/index.js';
 
 export default {
@@ -14,4 +15,5 @@ export default {
     FETCH_JOBS({ commit }) {
         return fetchJobs().then(response => commit('SET_JOBS', response.data));
     },
+  
 }

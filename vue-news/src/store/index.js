@@ -20,6 +20,7 @@ export default new Vuex.Store({
         item: {}
     },
     getters,
-    mutations,
+    mutations : mutations,
     actions,
+    // 앞뒤 같으면 뒤에 생략 가능(문법)
 })

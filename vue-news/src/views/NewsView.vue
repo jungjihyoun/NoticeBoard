@@ -1,28 +1,25 @@
 <template>
   <div>
-    <div v-for="user in users" :key="user"> {{ user.title }}</div>
+    <p v-for="news in this.$store.state.news" :key="news.id">
+      <a :href="news.url">{{ news.title }}</a><br>
+      <small>
+        {{ news.time_ago }} 
+        by 
+        <router-link :to="'/user/' + news.user">{{ news.user }}</router-link>
+      </small>
+    </p>
   </div>
 </template>
 
 <script>
-import { fetchNews } from '../api/index.js';
 export default {
-  data(){
-    return{
-      users: []
-    }
-  },
-   created() {
-    fetchNews()
-      .then(response => this.users = response.data)
-      .catch(error => console.log(error));
+  created() {
+    this.$store.dispatch('FETCH_NEWS')
+      .then(() => console.log('success'))
+      .catch(() => console.log('fail'));
   }
 }
-  
 </script>
 
 <style>
 </style>
-
-// views에는 가급적이면 페이지 라우팅에 대한 정보만 넣자
-// 로직,패치,데이터 등은 별도의 컴포넌트로 빼자

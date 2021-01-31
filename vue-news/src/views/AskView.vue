@@ -1,24 +1,19 @@
 <template>
- <div>
-    <div v-for="ask in asks" :key="ask">{{ask.title}}</div>
- </div>
-
+  <div>
+    <p v-for="job in this.$store.state.jobs" :key="job.id">
+      <a :href="job.url">{{ job.title }}</a><br>
+      <small>{{ job.time_ago }} by {{ job.domain }}</small>
+    </p>
+  </div>
 </template>
 
 <script>
-import { fetchAsk } from '../api/index.js';
 export default {
-  data(){
-    return{
-      asks: []
-    }
-  },
   created() {
-    fetchAsk()
-    .then(response => this.asks = response.data)
-    .catch(error => console.log(error));
-  },
-  
+    this.$store.dispatch('FETCH_JOBS')
+      .then(() => console.log('success'))
+      .catch(() => console.log('fail'));
+  }
 }
 </script>
 

@@ -5,7 +5,7 @@
       <small>
         {{ news.time_ago }} 
         by 
-        <router-link :to="'/user/' + news.user">{{ news.user }}</router-link>
+        <router-link v-bind:to="'/user/' + news.user">{{ news.user }}</router-link>
       </small>
     </p>
   </div>

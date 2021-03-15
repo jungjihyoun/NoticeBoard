@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "../../../../.."
+		},
+		{
+			"path": "../../../../../../nodeJs"
+		},
+		{
+			"path": "../../../../../../SASS"
+		},
+		{
+			"path": "../../../../../../TypeScript"
+		},
+		{
+			"path": "../../../../../../VueBook"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "VueBook"
+	}
+}

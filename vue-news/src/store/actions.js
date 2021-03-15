@@ -1,8 +1,10 @@
+
 import {
     fetchNews,
     fetchAsk,
     fetchJobs,
-
+    fetchUser,
+    fetchItem
 } from '../api/index.js';
 
 export default {
@@ -15,5 +17,21 @@ export default {
     FETCH_JOBS({ commit }) {
         return fetchJobs().then(response => commit('SET_JOBS', response.data));
     },
-  
+    FETCH_USER({ commit }, userId) {
+        return fetchUser(userId)
+            .then(res => commit('SET_USER', res.data))
+            .catch(error => {
+                console.log(error);
+            });
+    },
+    FETCH_ITEM({ commit }, itemId) {
+        return fetchItem(itemId)
+            .then(res => commit('SET_ITEM', res.data))
+            .catch(error => {
+                console.log(error);
+            });
+    },
+
 }
+
+// actions는 비동기적 로직을 정의
